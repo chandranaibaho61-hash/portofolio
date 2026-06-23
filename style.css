@@ -1,0 +1,522 @@
+/* style.css */
+
+:root {
+    --primary-color: #00bcd4; /* Cyan - dari Albert */
+    --secondary-color: #1e3a8a; /* Dark Blue - dari Albert */
+    --background-dark: #0f172a; /* Darker background - dari Albert */
+    --card-background: #1e293b; /* Slightly lighter dark for cards - dari Albert */
+    --text-color-light: #e2e8f0; /* Light text - dari Albert */
+    --text-color-muted: #94a3b8; /* Muted text - dari Albert */
+    --accent-color: #3b82f6; /* Blue accent - dari Albert */
+    --border-color: #334155; /* Darker border - dari Albert */
+
+    /* Warna dari Muhamad Haekal untuk gradien hero */
+    --gradient-hero-start: #8a2be2; /* Purple */
+    --gradient-hero-end: #4169e1; /* Royal Blue */
+    --gradient-hero-middle: #9370db; /* Medium Purple */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    line-height: 1.7;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+.container {
+    max-width: 1200px; /* Lebih lebar untuk tata letak hero */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--background-dark) 100%);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Sama dengan container utama */
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Menggunakan warna aksen Albert */
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color); /* Warna aksen Albert */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden; /* Penting untuk background gradient */
+    margin-bottom: 40px; /* Jarak ke section berikutnya */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gradient-hero-start) 0%, var(--gradient-hero-middle) 50%, var(--gradient-hero-end) 100%);
+    opacity: 0.6;
+    z-index: -1;
+    border-radius: 0 0 50% 50% / 0 0 30% 30%; /* Efek melengkung */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.hero h1 .name {
+    color: var(--primary-color); /* Warna aksen Albert */
+    font-weight: bold;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color-muted); /* Menggunakan warna muted dari Albert */
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.btn-primary:hover {
+    background-color: #7a28cc; /* Darker purple */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(138, 43, 226, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color-light);
+    border: 2px solid var(--text-color-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-color-light);
+    color: var(--background-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+}
+
+.hero-image img {
+    width: 300px; /* Sesuaikan ukuran */
+    height: 300px; /* Sesuaikan ukuran */
+    border-radius: 50%; /* Membuat gambar bulat */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+    border: 5px solid var(--primary-color); /* Border pada gambar */
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+/* Main Content Sections (dari Albert) */
+main {
+    max-width: 800px; /* Lebar konten utama lebih sempit */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Menggunakan warna aksen Albert */
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color); /* Menggunakan warna aksen Albert */
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--text-color-muted);
+    font-size: 1.1rem;
+}
+
+/* Profil Section */
+#profil p {
+    font-size: 1.1rem;
+}
+
+.info-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    margin: 15px 30px;
+}
+
+.info-item p:first-child {
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.info-item p:last-child {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+}
+
+
+/* Minat Section */
+#minat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interest-cards-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.interest-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    flex: 1; /* Agar kartu bisa mengisi ruang */
+    min-width: 280px; /* Lebar minimum kartu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.interest-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Kualifikasi Section */
+.sub-section {
+    margin-bottom: 40px;
+}
+
+.sub-section h3 {
+    font-size: 1.6rem;
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.sub-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent-color);
+    border-radius: 1px;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-date {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.85rem;
+    color: var(--text-color-muted);
+    background-color: rgba(59, 130, 246, 0.1); /* Blue with opacity */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.card h4 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.card p:not(:last-child) {
+    font-size: 0.95rem;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
+}
+
+.card p:last-child {
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+}
+
+/* Kontak Section */
+.contact-info-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.contact-info {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.contact-info p:first-child {
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.contact-info p:last-child {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        min-height: auto;
+        padding: 4rem 1rem;
+    }
+    .hero-content {
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .hero-image {
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
+    nav {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .section {
+        padding: 40px 0;
+    }
+    .interest-card, .card, .contact-info {
+        padding: 20px;
+    }
+    .card-date {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    .info-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-item {
+        margin: 10px 0;
+    }
+    .interest-cards-wrapper, .contact-info-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .interest-card, .contact-info {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.8rem;
+    }
+    .tagline {
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .section {
+        padding: 30px 0;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .hero-image img {
+        width: 150px;
+        height: 150px;
+    }
+    .interest-card h3, .card h4 {
+        font-size: 1.3rem;
+    }
+    .contact-info p:last-child, .info-item p:last-child {
+        font-size: 1.1rem;
+    }
+}
